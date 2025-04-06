@@ -78,7 +78,6 @@ int main(int argc, char *argv[])
 
     while (fgets(dictWord, sizeof(dictWord), d)) 
     {
-        // Remove newline character if it exists
         char *nl = strchr(dictWord, '\n');
         if (nl) *nl = '\0'; 
 
@@ -90,14 +89,12 @@ int main(int argc, char *argv[])
         if (foundHash != NULL) 
         {
             printf("%s %s\n", foundHash, dictWord);
-            hashCrack++;  // Increment the counter for each cracked hash
+            hashCrack++;  
         }
     }
 
     // Close the dictionary file.
     fclose(d);
-
-    // Display the number of hashes that were cracked.
     printf("Cracked %d hashes.\n", hashCrack);
     
     // Free up any malloc'd memory?
